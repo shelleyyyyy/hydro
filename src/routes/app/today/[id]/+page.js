@@ -22,6 +22,14 @@ export function load({ params }) {
                 data: fetchData(params.id)
             }
         ) 
+    } else if(params.id == "onetemp"){
+        return(
+            {
+                type: params.id,
+                title: "Sector One Temp Data",
+                data: fetchData("temp_h_1")
+            }
+        ) 
     }
 
 
@@ -37,7 +45,9 @@ const fetchData = async (collection) => {
 
     let list = []
 
-    const resultList = await pb.collection(collection).getList(1, 50);
+    const resultList = await pb.collection(collection).getList(1, 50000, {
+        sort: ' created'
+    });
 
     list = resultList.items
     

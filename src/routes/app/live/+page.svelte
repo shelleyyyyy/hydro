@@ -6,5 +6,6 @@
 </script>
 
 
-<LiveBox type={"Humidity"} coll={"humid"}/>
-<LiveBox type={"Tempature"} coll={"temp"}/>
+<LiveBox type={"Humidity"} coll={"live_humid"}/>
+<LiveBox type={"Tempature"} coll={"live_temp"}/>
+

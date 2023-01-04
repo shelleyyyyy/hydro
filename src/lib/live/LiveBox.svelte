@@ -23,7 +23,6 @@
         liveValue = resultList.items[0]
 
         pb.collection(coll).subscribe('*', function (e) {
-            console.log(e.record);
             liveValue = e.record
         });
     });

@@ -31,7 +31,16 @@
 	</div>
 	<div class="navbar-center hidden lg:flex">
 		<ul class="menu menu-horizontal px-1">
-			<li><a href="/app/data">Historical Data</a></li>
+			<li tabindex="-1">
+				<div class="justify-between">
+				  Historical
+				  <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"/></svg>
+				</div>
+				<ul class="p-2">
+				  <li><a href="/app/today/temp">Today</a></li>
+				  <li><a href="/app/modules/onetemp">Modules</a></li>
+				</ul>
+			  </li>
 			<li><a href="/app/live">Live</a></li>
 		</ul>
 	</div>

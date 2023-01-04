@@ -17,6 +17,7 @@
     let one = []
     let two = []
     let three = []
+    let labels = []
 
     let data = {}
 
@@ -26,12 +27,13 @@
       
     })
     for(let i = 0; i < lineData.length; i++){
-          one.push(lineData[i].one)
-          two.push(lineData[i].two)
-          three.push(lineData[i].three)
-      }      
+      one.push(lineData[i].one)
+      two.push(lineData[i].two)
+      three.push(lineData[i].three)
+      labels.push(lineData[i].created)
+    }      
     data = {
-        labels: one,
+        labels: labels,
         datasets: [
           {
             label: 'Sector One  ',
