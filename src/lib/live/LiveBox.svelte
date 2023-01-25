@@ -34,16 +34,33 @@
 <div class="grid justify-items-center p-10">
     <div class="stats shadow w-full">
         <div class="stat">
-          <div class="stat-title">Sector One</div>
-          <div class="stat-value text-primary">{liveValue.one}</div>
+            <div class="stat-title">Sector One</div>
+            <div class="stat-value text-primary">{liveValue.one}
+                {#if type == "Humidity"}
+                    %
+                {:else}
+                    F
+                {/if}
+        </div>
         </div>
         <div class="stat">
             <div class="stat-title">Sector Two</div>
-            <div class="stat-value text-primary">{liveValue.two}</div>
+            <div class="stat-value text-primary">{liveValue.two}
+                {#if type == "Humidity"}
+                    %
+                {:else}
+                    F
+                {/if}</div>
           </div>
           <div class="stat">
             <div class="stat-title">Sector Three</div>
-            <div class="stat-value text-primary">{liveValue.three}</div>
+            <div class="stat-value text-primary">{liveValue.three}
+                {#if type == "Humidity"}
+                    %
+                {:else}
+                    F
+                {/if}
+            </div>
           </div>
       </div>
 </div>

@@ -46,7 +46,7 @@ const fetchData = async (collection) => {
     let list = []
 
     const resultList = await pb.collection(collection).getList(1, 50000, {
-        sort: ' created'
+        sort: 'created'
     });
 
     list = resultList.items

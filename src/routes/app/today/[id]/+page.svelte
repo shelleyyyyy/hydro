@@ -20,4 +20,4 @@
     <LineChart lineData={data.data}/>
 {/if}
 
-<SensorTable data={data.data}/>         
+<SensorTable type={data.type} data={data.data}/>         

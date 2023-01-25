@@ -30,7 +30,8 @@
       one.push(lineData[i].one)
       two.push(lineData[i].two)
       three.push(lineData[i].three)
-      labels.push(lineData[i].created)
+      const date = new Date(lineData[i].created);
+      labels.push(date.toLocaleTimeString())
     }      
     data = {
         labels: labels,
@@ -47,7 +48,7 @@
             borderJoinStyle: 'miter',
             pointBorderColor: 'rgb(205, 130,1 58)',
             pointBackgroundColor: 'rgb(255, 255, 255)',
-            pointBorderWidth: 10,
+            pointBorderWidth: 3,
             pointHoverRadius: 5,
             pointHoverBackgroundColor: 'rgb(0, 0, 0)',
             pointHoverBorderColor: 'rgba(220, 220, 220,1)',
@@ -68,7 +69,7 @@
             borderJoinStyle: 'miter',
             pointBorderColor: 'rgb(35, 26, 136)',
             pointBackgroundColor: 'rgb(255, 255, 255)',
-            pointBorderWidth: 10,
+            pointBorderWidth: 3,
             pointHoverRadius: 5,
             pointHoverBackgroundColor: 'rgb(0, 0, 0)',
             pointHoverBorderColor: 'rgba(220, 220, 220, 1)',
@@ -89,7 +90,7 @@
             borderJoinStyle: 'miter',
             pointBorderColor: '#03fcad',
             pointBackgroundColor: 'rgb(255, 255, 255)',
-            pointBorderWidth: 10,
+            pointBorderWidth: 3,
             pointHoverRadius: 5,
             pointHoverBackgroundColor: 'rgb(0, 0, 0)',
             pointHoverBorderColor: 'rgba(220, 220, 220, 1)',

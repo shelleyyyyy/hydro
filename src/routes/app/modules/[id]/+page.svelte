@@ -40,4 +40,4 @@
 
 
 
-<ModulesSensorTable data={data.data}/>         
+<ModulesSensorTable type={data.type} data={data.data}/>         

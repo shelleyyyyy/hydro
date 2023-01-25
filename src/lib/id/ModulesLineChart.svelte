@@ -17,21 +17,36 @@
       let one = []
       let two = []
       let three = []
+      let labels = []
   
       let data = {}
   
       onMount(() => {
         console.log("LINE", lineData)
-  
-        
+
+        // function dateString2Date(dateString) {
+        //   const dt = dateString.split(/\-|\s/);
+        //   return new Date(dt.slice(0, 3).reverse().join('-') + ' ' + dt[3]);
+        // }
+
+           
       })
+
       for(let i = 0; i < lineData.length; i++){
-            one.push(lineData[i].avg)
-            two.push(lineData[i].min)
-            three.push(lineData[i].max)
-        }      
+        one.push(lineData[i].avg)
+        two.push(lineData[i].min)
+        three.push(lineData[i].max)
+        // labels.push(lineData[i].created)
+        // var str = lineData[i].created
+        // console.log(dateString2Date(str))
+        const date = new Date(lineData[i].created);
+        labels.push(date.toLocaleDateString())
+
+      }  
+
+      
       data = {
-          labels: one,
+          labels: labels,
           datasets: [
             {
               label: 'Average',
@@ -45,7 +60,7 @@
               borderJoinStyle: 'miter',
               pointBorderColor: 'rgb(205, 130,1 58)',
               pointBackgroundColor: 'rgb(255, 255, 255)',
-              pointBorderWidth: 10,
+              pointBorderWidth: 3,
               pointHoverRadius: 5,
               pointHoverBackgroundColor: 'rgb(0, 0, 0)',
               pointHoverBorderColor: 'rgba(220, 220, 220,1)',
@@ -66,7 +81,7 @@
               borderJoinStyle: 'miter',
               pointBorderColor: 'rgb(35, 26, 136)',
               pointBackgroundColor: 'rgb(255, 255, 255)',
-              pointBorderWidth: 10,
+              pointBorderWidth: 3,
               pointHoverRadius: 5,
               pointHoverBackgroundColor: 'rgb(0, 0, 0)',
               pointHoverBorderColor: 'rgba(220, 220, 220, 1)',
@@ -87,7 +102,7 @@
               borderJoinStyle: 'miter',
               pointBorderColor: '#03fcad',
               pointBackgroundColor: 'rgb(255, 255, 255)',
-              pointBorderWidth: 10,
+              pointBorderWidth: 3,
               pointHoverRadius: 5,
               pointHoverBackgroundColor: 'rgb(0, 0, 0)',
               pointHoverBorderColor: 'rgba(220, 220, 220, 1)',

@@ -15,6 +15,8 @@
   let username = ""
   let password = ""
 
+  $: failedLogin = false
+
   const login = async () => {
     await pb.collection('users').authWithPassword(
       username,
@@ -22,7 +24,11 @@
     ).catch(() => {
       console.log("handle error")
     }).then(() => {
-      goto("/app")
+      if(pb.authStore.isValid){
+        goto("/app")
+      } else {
+        failedLogin = true
+      }
     })
   }
 
@@ -30,12 +36,15 @@
 
 <div class="hero min-h-screen bg-base-200">
 <div class="hero-content flex-col lg:flex-row-reverse">
-  <div class="text-center lg:text-left">
-    <h1 class="text-5xl font-bold">Register now!</h1>
-    <p class="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+  <div class="text-center lg:text-left w-60">
+    <h1 class="text-5xl font-bold">Sign In</h1>
+    <!-- <p class="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p> -->
   </div>
   <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
     <div class="card-body">
+      {#if failedLogin}
+        <h1 class="text-red-500">Invalid Credentials Try Again</h1>
+      {/if}
       <div class="form-control">
         <!-- svelte-ignore a11y-label-has-associated-control -->
         <label class="label">

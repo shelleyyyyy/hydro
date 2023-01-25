@@ -1,6 +1,7 @@
 <script>
 
     export let data;
+    export let type;
       
   </script>
   
@@ -16,16 +17,34 @@
           </tr>
         </thead> 
         <tbody>
-          {#each data as d}
+          {#each data.reverse() as d, i}
   
             <tr>
-              <th>1</th> 
-              <td>{d.created}</td> 
-              <td>{d.avg}</td> 
-              <td>{d.min}</td> 
-              <td>{d.max}</td> 
+              <th>{i + 1}</th> 
+              <td>{new Date(d.created).toLocaleDateString()}</td> 
+              <td>{d.avg.toFixed(2)}
+                {#if type.includes("humid")}
+                    %
+                {:else}
+                    F
+                {/if}
+              </td> 
+              <td>{d.min}
+                {#if type.includes("humid")}
+                    %
+                {:else}
+                    F
+                {/if}
+              </td> 
+              <td>{d.max}
+                {#if type.includes("humid")}
+                    %
+                {:else}
+                    F
+                {/if}
+              </td> 
             </tr>
-            
+
           {/each}
         </tbody> 
       </table>

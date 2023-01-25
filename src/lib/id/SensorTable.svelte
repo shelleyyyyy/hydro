@@ -1,7 +1,8 @@
 <script>
 
   export let data;
-    
+  export let type;
+
 </script>
 
 <div class="overflow-x-auto">
@@ -9,23 +10,39 @@
       <thead>
         <tr>
           <th></th> 
-          <th>Date Time</th> 
+          <th>Time</th> 
           <th>Sector One</th> 
           <th>Sector Two</th> 
           <th>Sector Three</th> 
         </tr>
       </thead> 
       <tbody>
-        {#each data as d}
-
+        {#each data.reverse() as d, i}
           <tr>
-            <th>1</th> 
-            <td>{d.created}</td> 
-            <td>{d.one}</td> 
-            <td>{d.two}</td> 
-            <td>{d.three}</td> 
+            <th>{i + 1}</th> 
+            <td>{new Date(d.created).toLocaleTimeString()}</td> 
+            <td>{d.one}
+              {#if type == "humid"}
+                  %
+              {:else}
+                  F
+              {/if}
+            </td> 
+            <td>{d.two}
+              {#if type == "humid"}
+                  %
+              {:else}
+                  F
+              {/if}
+            </td> 
+            <td>{d.three}
+              {#if type == "humid"}
+                  %
+              {:else}
+                  F
+              {/if}
+            </td> 
           </tr>
-          
         {/each}
       </tbody> 
     </table>
