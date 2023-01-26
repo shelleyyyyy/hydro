@@ -4,7 +4,7 @@
 	import { goto } from '$app/navigation';
 
 	
-	const pb = new PocketBase('http://45.79.208.204:8080');
+	const pb = new PocketBase('https://vmihydro.com');
 
 	const logout = () => {
 		pb.authStore.clear();
